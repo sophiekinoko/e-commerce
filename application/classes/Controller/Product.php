@@ -49,13 +49,13 @@ class Controller_Product extends Controller {
             //on ajoute l'id du produit passé en paramètre dans le panier virtuel
 
             // on ajoute la valeur 1 à mon tableau $_session le -product permet de passer le chiffre en chaine de caractère
-            if(!isset($_SESSION["cart"]["product-".$id]))
+            if(!isset($_SESSION["cart"][$id]))
             {
-                $_SESSION["cart"]["product-".$id] = 1;
+                $_SESSION["cart"][$id] = 1;
             }
             else
             {
-                $_SESSION["cart"]["product-".$id]++;
+                $_SESSION["cart"][$id]++;
             }
 
             //et on redirige vers le panier
@@ -106,11 +106,9 @@ class Controller_Product extends Controller {
 
         $id = $this->request->param('id');
 
-
-
         $view->imgPath = URL::base()."/assets/img/";
 
-        unset($_SESSION["cart"]["product-".$id]);
+        unset($_SESSION["cart"][$id]);
         $view->listOfProducts = $product->getAllProducts();
 
         $this->redirect('product/cart');
@@ -122,11 +120,14 @@ class Controller_Product extends Controller {
     public function action_command()
     {
         $product = new Model_Product();
-//         $id = $product->nameCommand();
-        $idUser = $_SESSION["user"]["id"];
-//        $idProduct = $_SESSION["cart"]["product-"];
-        $quantity = $_SESSION["user"]["id"];
-//        $command = $product->setCommand($id, $idUser, $idProduct, $quantity);
+        $id = $product->nameCommand();
+        foreach ($_SESSION["cart"] as $key => $value)
+        {
+            $idUser = $_SESSION["user"]["id"];
+            $idProduct = $key;
+            $quantity = $value;
+            $product->setCommand($id, $idUser, $idProduct, $quantity);
+        }
         $view = View::factory("command");
         $this->response->body($view);
     }

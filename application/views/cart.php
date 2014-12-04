@@ -36,9 +36,8 @@
                         <!--<td>Remove</td>-->
                     </tr>
                     <?php foreach ($_SESSION['cart'] as $key => $value): ?>
-                        <?php $key = str_replace("product-", "", $key); ?>
                         <?php $product = $products->getProduct($key); ?>
-                        <?php array_push($totalPrice, $product["price"]*$_SESSION["cart"]["product-".$product["id"]]); ?>
+                        <?php array_push($totalPrice, $product["price"]*$_SESSION["cart"][$product["id"]]); ?>
 
                         <tr>
                             <td><img src="<?= $imgPath.$product["img"] ?>_small.jpg" alt="" /></td>
@@ -46,13 +45,13 @@
                             <td><?= $product["name"] ?></td>
                             <td><?= $product["price"] ?> €</td>
                             <td>
-                                <select name="product-<?= $key ?>" id="cartform">
+                                <select name="<?= $key ?>" id="cartform">
                                     <?php for($i=0; $i<11; $i++): ?>
-                                        <option value="<?= $i ?>" <?php if($i==$_SESSION["cart"]["product-".$product["id"]]){echo "selected";} ?> ><?= $i ?></option>
+                                        <option value="<?= $i ?>" <?php if($i==$_SESSION["cart"][$product["id"]]){echo "selected";} ?> ><?= $i ?></option>
                                     <?php endfor; ?>
                                 </select>
                             </td>
-                            <td><?= $product["price"]*$_SESSION["cart"]["product-".$product["id"]] ?> €</td>
+                            <td><?= $product["price"]*$_SESSION["cart"][$product["id"]] ?> €</td>
                             <!--<td><a href="--><?//= URL::base() ?><!--product/remove_article/--><?//= $product["id"] ?><!--" style="color: red">X</a></td>-->
                         </tr>
                     <?php endforeach; ?>

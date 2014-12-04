@@ -31,8 +31,7 @@ private $db;
 
     public function nameCommand()
     {
-        $this->db->execute("INSERT INTO ids_command (pretext) VALUES ('ok')");
-        return $this->db->queryOne("SELECT id from ids_command ORDER BY ID DESC LIMIT 1 ");
+        return $this->db->execute("INSERT INTO ids_command (pretext) VALUES ('ok')");
     }
 
     public function setCommand($id, $idUser, $idProduct, $quantity)

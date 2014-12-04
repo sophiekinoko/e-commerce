@@ -346,3 +346,80 @@
 #10 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
 #11 /home/wap29/sites/PHP/18-ecommerce/index.php(118): Kohana_Request->execute()
 #12 {main} in /home/wap29/sites/PHP/18-ecommerce/application/views/cart.php:41
+2014-12-04 10:08:08 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected '.', expecting ']' ~ APPPATH/classes/Controller/Product.php [ 58 ] in file:line
+2014-12-04 10:08:08 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2014-12-04 10:11:48 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: id ~ APPPATH/classes/Controller/Product.php [ 128 ] in /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php:128
+2014-12-04 10:11:48 --- DEBUG: #0 /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php(128): Kohana_Core::error_handler(8, 'Undefined index...', '/home/wap29/sit...', 128, Array)
+#1 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Controller.php(84): Controller_Product->action_command()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Product))
+#4 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/wap29/sites/PHP/18-ecommerce/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php:128
+2014-12-04 10:13:07 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: id ~ APPPATH/classes/Controller/Product.php [ 128 ] in /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php:128
+2014-12-04 10:13:07 --- DEBUG: #0 /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php(128): Kohana_Core::error_handler(8, 'Undefined index...', '/home/wap29/sit...', 128, Array)
+#1 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Controller.php(84): Controller_Product->action_command()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Product))
+#4 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/wap29/sites/PHP/18-ecommerce/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php:128
+2014-12-04 10:18:42 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: cart ~ APPPATH/classes/Controller/Product.php [ 126 ] in /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php:126
+2014-12-04 10:18:42 --- DEBUG: #0 /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php(126): Kohana_Core::error_handler(8, 'Undefined index...', '/home/wap29/sit...', 126, Array)
+#1 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Controller.php(84): Controller_Product->action_command()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Product))
+#4 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/wap29/sites/PHP/18-ecommerce/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php:126
+2014-12-04 10:19:36 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: cart ~ APPPATH/classes/Controller/Product.php [ 124 ] in /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php:124
+2014-12-04 10:19:36 --- DEBUG: #0 /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php(124): Kohana_Core::error_handler(8, 'Undefined index...', '/home/wap29/sit...', 124, Array)
+#1 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Controller.php(84): Controller_Product->action_command()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Product))
+#4 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/wap29/sites/PHP/18-ecommerce/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php:124
+2014-12-04 10:20:02 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: cart ~ APPPATH/classes/Controller/Product.php [ 124 ] in /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php:124
+2014-12-04 10:20:02 --- DEBUG: #0 /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php(124): Kohana_Core::error_handler(8, 'Undefined index...', '/home/wap29/sit...', 124, Array)
+#1 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Controller.php(84): Controller_Product->action_command()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Product))
+#4 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/wap29/sites/PHP/18-ecommerce/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php:124
+2014-12-04 10:21:38 --- EMERGENCY: ErrorException [ 8 ]: Array to string conversion ~ APPPATH/classes/Model/Product.php [ 40 ] in /home/wap29/sites/PHP/18-ecommerce/application/classes/Model/Product.php:40
+2014-12-04 10:21:38 --- DEBUG: #0 /home/wap29/sites/PHP/18-ecommerce/application/classes/Model/Product.php(40): Kohana_Core::error_handler(8, 'Array to string...', '/home/wap29/sit...', 40, Array)
+#1 /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php(129): Model_Product->setCommand(Array, '4', 5, 7)
+#2 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Controller.php(84): Controller_Product->action_command()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Product))
+#5 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#7 /home/wap29/sites/PHP/18-ecommerce/index.php(118): Kohana_Request->execute()
+#8 {main} in /home/wap29/sites/PHP/18-ecommerce/application/classes/Model/Product.php:40
+2014-12-04 10:23:30 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: idUser ~ APPPATH/classes/Controller/Product.php [ 126 ] in /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php:126
+2014-12-04 10:23:30 --- DEBUG: #0 /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php(126): Kohana_Core::error_handler(8, 'Undefined varia...', '/home/wap29/sit...', 126, Array)
+#1 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Controller.php(84): Controller_Product->action_command()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Product))
+#4 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/wap29/sites/PHP/18-ecommerce/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php:126
+2014-12-04 10:23:46 --- EMERGENCY: ErrorException [ 8 ]: Array to string conversion ~ APPPATH/classes/Model/Product.php [ 40 ] in /home/wap29/sites/PHP/18-ecommerce/application/classes/Model/Product.php:40
+2014-12-04 10:23:46 --- DEBUG: #0 /home/wap29/sites/PHP/18-ecommerce/application/classes/Model/Product.php(40): Kohana_Core::error_handler(8, 'Array to string...', '/home/wap29/sit...', 40, Array)
+#1 /home/wap29/sites/PHP/18-ecommerce/application/classes/Controller/Product.php(131): Model_Product->setCommand(Array, '4', 5, 7)
+#2 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Controller.php(84): Controller_Product->action_command()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Product))
+#5 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /home/wap29/sites/PHP/18-ecommerce/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#7 /home/wap29/sites/PHP/18-ecommerce/index.php(118): Kohana_Request->execute()
+#8 {main} in /home/wap29/sites/PHP/18-ecommerce/application/classes/Model/Product.php:40
