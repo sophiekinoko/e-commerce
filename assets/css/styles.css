@@ -1,0 +1,209 @@
+body {
+	background-image: url("../img/bg.jpg");
+    background-attachment:fixed;
+    color: #3F3F3F;
+    font-family: 'Lato', sans-serif;
+}
+
+.wrap {
+    width: 70%;
+    margin: auto;
+    padding: 1em;
+    background-color: white;
+    margin-top: 2em;
+}
+
+.main {
+    width: 75%;
+    float: right;
+}
+
+.aside {
+    width: 20%;
+    float: right;
+    background-color: #FCD001;
+    margin-left: 2em;
+    padding-left: 0.5em;
+    margin-top: 1.2em;
+    padding-top: 0.4em;
+}
+
+
+a {
+    color: #01191B;
+    text-decoration: none;
+}
+
+h1, h2 {
+    color: #01191B;
+    font-weight: 900;
+    padding: 0.65em;
+}
+
+h1 {
+	font-size: 3em;
+        border-bottom: 3px solid black;
+        border-top: 3px solid black;
+    text-align: center;
+}
+
+h2 {
+	font-size: 1.5em;
+	margin-bottom: 0;
+    background-color: #9B1E60;
+        color: white;
+}
+
+ul { 
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 1em;
+}
+
+textarea {
+	width: 100%;
+}
+
+input {
+	width: 100%;
+}
+
+.index {
+    width: 32%;
+    float: left;
+    padding: 0.65em 0.75em 0.65em 0;
+    text-align: center;
+}
+
+.index:nth-child(3n-1) {
+    clear: both;
+}
+
+.index:nth-child(3n+1) {
+    padding-right: 0;
+}
+
+.category {
+    color: white;
+    background-color: orange;
+    padding: 2px;
+    margin: 0.5em 0;
+}
+.price {
+    color: black;
+    background-color: #2D9FF7;
+    padding: 2px;
+    font-size: 1.3em;
+    font-weight: 900;
+    margin: 0.5em 0;
+}
+
+.description {
+    font-size: 0.8em;
+    text-align: left;
+    padding: 0.8em;
+    background-color: #edeaea;
+}
+
+.product {
+    text-align: center;
+}
+
+
+.cart {
+    text-transform: uppercase;
+    border: 2px solid #FCD001;
+    font-weight: 900;
+    padding: 1.5em;
+    font-size: 1em;
+}
+
+/*PANIER*/
+
+table {
+    width: 100%;
+    text-align: center;
+    margin-top: 1em;
+    font-size: 0.8em;
+}
+
+tr:first-child {
+    border-top: 1px solid grey;
+    background-color: #FCD001;
+}
+
+
+tr:last-child {
+    border-bottom: 0px solid red;
+}
+
+td {
+    width: 15%;
+    border-bottom: 1px solid grey;
+    height: 2em;
+}
+
+
+
+td.white {
+    border-bottom: 0px solid grey;
+}
+
+.continue {
+    border-bottom: 1px solid grey;
+}
+
+table img {
+    width: 50%;
+}
+
+.checkout {
+    color: black;
+    background-color: orangered;
+    padding: 2px;
+    font-size: 1.3em;
+    font-weight: 900;
+    margin: 0.5em 0;
+    height: 2em;
+}
+
+
+/*MEDIA QUERIES*/
+
+@media screen and (max-width: 800px) and (min-width: 480px){
+.wrap {
+	width: 90%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+.wrap {
+	width: 90%;
+	}
+
+.main {
+    width: 100%;
+    float: none;
+}
+
+.aside {
+    width: 100%;
+    float: none;
+    margin-left: 0;
+    padding-left: 0;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0.4em;
+}
+
+.index {
+    width: 100%;
+    float: none;
+}
+}
