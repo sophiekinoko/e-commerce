@@ -29,4 +29,15 @@ private $db;
         return $this->db->queryOne("SELECT * from products WHERE id=?", array($id));
     }
 
+    public function nameCommand()
+    {
+        $this->db->execute("INSERT INTO ids_command (pretext) VALUES ('ok')");
+        return $this->db->queryOne("SELECT id from ids_command ORDER BY ID DESC LIMIT 1 ");
+    }
+
+    public function setCommand($id, $idUser, $idProduct, $quantity)
+    {
+        $this->db->execute("INSERT INTO commands (id, idUser, idProduct, quantity) VALUES ($id, $idUser, $idProduct, $quantity)");
+    }
+
 }

@@ -49,7 +49,15 @@ class Controller_Product extends Controller {
             //on ajoute l'id du produit passé en paramètre dans le panier virtuel
 
             // on ajoute la valeur 1 à mon tableau $_session le -product permet de passer le chiffre en chaine de caractère
-            $_SESSION["cart"]["product-".$id] = 1;
+            if(!isset($_SESSION["cart"]["product-".$id]))
+            {
+                $_SESSION["cart"]["product-".$id] = 1;
+            }
+            else
+            {
+                $_SESSION["cart"]["product-".$id]++;
+            }
+
             //et on redirige vers le panier
             $this->redirect('product/cart');
         }
@@ -71,6 +79,17 @@ class Controller_Product extends Controller {
         $view->imgPath = URL::base()."/assets/img/";
         $view->listOfProducts = $product->getAllProducts();
         $view->livraison = 10;
+        if(!empty($_POST))
+        {
+            $_SESSION['cart'] = [];
+            foreach ($_POST as $key => $value)
+            {
+                if($value != 0)
+                {
+                    $_SESSION['cart'][$key] = (int)$value;
+                }
+            }
+        }
 
         $this->response->body($view);
     }
@@ -87,12 +106,29 @@ class Controller_Product extends Controller {
 
         $id = $this->request->param('id');
 
+
+
         $view->imgPath = URL::base()."/assets/img/";
 
         unset($_SESSION["cart"]["product-".$id]);
         $view->listOfProducts = $product->getAllProducts();
 
         $this->redirect('product/cart');
+    }
+
+
+/////////////////////////////////////////////////////////////////
+
+    public function action_command()
+    {
+        $product = new Model_Product();
+//         $id = $product->nameCommand();
+        $idUser = $_SESSION["user"]["id"];
+//        $idProduct = $_SESSION["cart"]["product-"];
+        $quantity = $_SESSION["user"]["id"];
+//        $command = $product->setCommand($id, $idUser, $idProduct, $quantity);
+        $view = View::factory("command");
+        $this->response->body($view);
     }
 
 

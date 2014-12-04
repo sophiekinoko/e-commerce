@@ -155,10 +155,6 @@ td.white {
     border-bottom: 0px solid grey;
 }
 
-.continue {
-    border-bottom: 1px solid grey;
-}
-
 table img {
     width: 50%;
 }
@@ -170,7 +166,24 @@ table img {
     font-size: 1.3em;
     font-weight: 900;
     margin: 0.5em 0;
-    height: 2em;
+}
+
+.update {
+    color: black;
+    background-color: #FCD001;
+    padding: 2px;
+    font-size: 1.3em;
+    font-weight: 900;
+    margin: 0.5em 0;
+}
+
+.continue {
+    color: black;
+    background-color: lightgray;
+    padding: 2px;
+    font-size: 1em;
+    font-weight: 900;
+    margin: 0.5em 0;
 }
 
 
