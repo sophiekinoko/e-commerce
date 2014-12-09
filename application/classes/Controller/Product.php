@@ -123,15 +123,86 @@ class Controller_Product extends Controller {
         $id = $product->nameCommand();
         foreach ($_SESSION["cart"] as $key => $value)
         {
-            $idUser = $_SESSION["user"]["id"];
+            $address = $_POST['address'];
+            $idUser = $_SESSION['user']['id'];
             $idProduct = $key;
             $quantity = $value;
-            $product->setCommand($id, $idUser, $idProduct, $quantity);
+            $product->setCommand($id, $idUser, $idProduct, $quantity, $address);
+
+            //envoie un mail
+            $mail = new Helper_Mail();
+            $subject = "Command confirmation";
+            $body = "Command confirmation";
+            $address = $_SESSION['user']['email']; // Il est possible d'utiliser un tableau : array("roger@gmail.com", "bryan@yahoo.fr")
+            $mail->send($address, $subject, $body);
         }
+        unset($_SESSION["cart"]);
         $view = View::factory("command");
         $this->response->body($view);
     }
 
+
+/////////////////////////////////////////////////////////////////
+
+    public function action_administration()
+    {
+        $product = new Model_Product();
+
+        $view = View::factory("administration");
+        $view->message = "The product has been add.";
+        $view->imgPath = URL::base()."/assets/img/";
+        $view->products = $product->getAllProducts();
+
+        $this->response->body($view);
+    }
+
+/////////////////////////////////////////////////////////////////
+
+    public function action_toggle()
+    {
+        $product = new Model_Product();
+        $id = $this->request->param('id');
+        $myProduct = $product->getProduct($id);
+        $visible = $myProduct["visible"];
+        $visible = ($visible == 0) ? 1 : 0;
+        $product->toggleProduct($visible, $id);
+        $this->redirect('product/administration');
+    }
+
+/////////////////////////////////////////////////////////////////
+
+
+    public function action_add()
+    {
+        if(isset($_SESSION["user"]) && $_SESSION["user"]["administration"] == true)
+        {
+            $product = new Model_Product();
+            if(isset($_POST["name"]))
+            {
+                $name = $_POST["name"];
+                $description = $_POST["description"];
+                $price = $_POST["price"];
+                $category = $_POST["category"];
+                $img = $_POST["img"];
+                $visible = $_POST["visible"];
+                $product->addProduct($name, $description, $price, $category, $img, $visible);
+                $this->redirect('product/administration');
+            }
+
+            $view = View::factory("add");
+
+            //pour le select du fomulaire:
+            $view->categories = $product->getCategories();
+
+            $this->response->body($view);
+        }
+
+        else
+        {
+            $this->redirect('welcome/index');
+        }
+
+    }
 
 /////////////////////////////////////////////////////////////////
 

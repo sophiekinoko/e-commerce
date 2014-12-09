@@ -14,9 +14,23 @@ private $db;
 		return $this->db->queryOne("SELECT * from users WHERE username = ? ", array($username));
 	}
 
-	public function CreateUser($username, $email, $password)
+	public function createUser($username, $email, $password)
 	{
 		return $this->db->execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", array($username, $email, $password));
 	}
 
+    public function createAddress($idUser, $firstname, $lastname, $address, $address_complement, $city, $zipcode, $country)
+    {
+        return $this->db->execute("INSERT INTO addresses (idUser, first_name, last_name, address, address_complement, city, zipcode, country) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", array($idUser, $firstname, $lastname, $address, $address_complement, $city, $zipcode, $country));
+    }
+
+    public function tieUserAndAddress($idUser, $idAddress)
+    {
+        return $this->db->execute("INSERT INTO users_addresses (idUser, idAddress) VALUES (?, ?)", array($idUser, $idAddress));
+    }
+
+    public function getAddress($idUser)
+    {
+        return $this->db->query("SELECT * FROM addresses WHERE idUser = ?", array($idUser));
+    }
 }

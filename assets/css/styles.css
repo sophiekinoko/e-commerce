@@ -12,6 +12,9 @@ body {
     background-color: white;
     margin-top: 2em;
 }
+.clear {
+    clear: both;
+}
 
 .main {
     width: 75%;
@@ -71,7 +74,7 @@ textarea {
 }
 
 input {
-	width: 100%;
+	//width: 100%;
 }
 
 .index {
@@ -95,6 +98,11 @@ input {
     padding: 2px;
     margin: 0.5em 0;
 }
+
+.category a {
+    color: white;
+}
+
 .price {
     color: black;
     background-color: #2D9FF7;
@@ -186,37 +194,77 @@ table img {
     margin: 0.5em 0;
 }
 
+.red {
+    color: red;
+}
+
+.error {
+    margin-top: 1em;
+    padding: 0.5em;
+    border: solid red 2px;
+    font-weight: 900;
+}
+
+.footer {
+    text-align: right;
+    padding: 0.5em;
+}
+
+.administration {
+    width: 100%;
+}
+
+.admin {
+    text-align: center;
+    padding: 0.5em;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.admin a {
+    color: white;
+    font-weight: 900;
+}
+
+.add {
+    color: black;
+    border: #2D9FF7 2px solid;
+    padding: 1em;
+    font-size: 1.3em;
+    font-weight: 900;
+    margin: 0.5em 0;
+}
+
 
 /*MEDIA QUERIES*/
 
 @media screen and (max-width: 800px) and (min-width: 480px){
-.wrap {
-	width: 90%;
-	}
+    .wrap {
+        width: 90%;
+        }
 }
 
 @media screen and (max-width: 480px) {
-.wrap {
-	width: 90%;
-	}
+    .wrap {
+        width: 90%;
+        }
 
-.main {
-    width: 100%;
-    float: none;
-}
+    .main {
+        width: 100%;
+        float: none;
+    }
 
-.aside {
-    width: 100%;
-    float: none;
-    margin-left: 0;
-    padding-left: 0;
-    text-align: center;
-    margin-top: 0;
-    padding-top: 0.4em;
-}
+    .aside {
+        width: 100%;
+        float: none;
+        margin-left: 0;
+        padding-left: 0;
+        text-align: center;
+        margin-top: 0;
+        padding-top: 0.4em;
+    }
 
-.index {
-    width: 100%;
-    float: none;
-}
+    .index {
+        width: 100%;
+        float: none;
+    }
 }

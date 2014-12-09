@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>ecommerce</title>
-    <link rel="stylesheet" href="<?= URL::base() ?>/assets/css/normalize.css">
-    <link rel="stylesheet" href="<?= URL::base() ?>/assets/css/styles.css">
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
-</head>
-<body>
-
-<div class="wrap clearfix">
-
-    <h1><a href="<?= URL::site('/') ?>">My Shop</a></h1>
-
-    <div class="aside">
-        <?php include 'nav.php' ?>
-    </div>
-
+<?php include 'header.php' ?>
+<?php include 'nav.php' ?>
 
     <div class="main">
         <h2>My cart</h2>
@@ -33,7 +16,7 @@
                         <td>Price</td>
                         <td>Quantity</td>
                         <td>Total price</td>
-                        <!--<td>Remove</td>-->
+                        <td>Remove</td>
                     </tr>
                     <?php foreach ($_SESSION['cart'] as $key => $value): ?>
                         <?php $product = $products->getProduct($key); ?>
@@ -46,24 +29,28 @@
                             <td><?= $product["price"] ?> €</td>
                             <td>
                                 <select name="<?= $key ?>" id="cartform">
-                                    <?php for($i=0; $i<11; $i++): ?>
+                                    <?php for($i=1; $i<11; $i++): ?>
                                         <option value="<?= $i ?>" <?php if($i==$_SESSION["cart"][$product["id"]]){echo "selected";} ?> ><?= $i ?></option>
                                     <?php endfor; ?>
                                 </select>
                             </td>
-                            <td><?= $product["price"]*$_SESSION["cart"][$product["id"]] ?> €</td>
-                            <!--<td><a href="--><?//= URL::base() ?><!--product/remove_article/--><?//= $product["id"] ?><!--" style="color: red">X</a></td>-->
+                            <td><?php $total = $product["price"]*$_SESSION["cart"][$product["id"]];
+                                echo number_format($total, 2, ',', '');
+                                ?> €</td>
+                            <td><a href="<?= URL::base() ?>product/remove_article/<?= $product["id"] ?>" style="color: red">X</a></td>
                         </tr>
                     <?php endforeach; ?>
                     <tr>
                         <td class="white" colspan="4"></td>
                         <td>total HT:</td>
-                        <td><?= $totalCart = array_sum($totalPrice); ?> €</td>
+                        <td><?php $totalCart = array_sum($totalPrice);
+                            echo number_format($totalCart, 2, ',', '');?> €</td>
                     </tr>
                     <tr>
                         <td class="white" colspan="4"></td>
                         <td>Taxes (20%):</td>
-                        <td><?= $TVA = array_sum($totalPrice)*0.2; ?> €</td>
+                        <td><?php $TVA = array_sum($totalPrice)*0.2;
+                            echo number_format($TVA, 2, ',', '');?> €</td>
                     </tr>
                     <tr>
                         <td class="white" colspan="4"></td>
@@ -73,7 +60,7 @@
                     <tr>
                         <td class="white" colspan="4"></td>
                         <td class="price">TOTAL TTC:</td>
-                        <td class="price"><?= number_format($totalCart+$TVA+$livraison, 2, ',', ' ')." €" ?></td>
+                        <td class="price"><?= $price = number_format($totalCart+$TVA+$livraison, 2, ',', ' ')." €" ?></td>
                     </tr>
                     <tr>
                         <td class="white" colspan="4"></td>
@@ -81,7 +68,7 @@
                     </tr>
                     <tr>
                         <td class="white" colspan="4"></td>
-                        <td class="checkout" colspan="2"><a href="<?= URL::site('product/command') ?>">CHECKOUT</a></td>
+                        <td class="checkout" colspan="2"><a href="<?= URL::site('user/address') ?>">CHECKOUT</a></td>
                     </tr>
                     <tr>
                         <td class="white" colspan="4"></td>
@@ -89,8 +76,6 @@
                     </tr>
                 </table>
             </form>
-
-
 
         <?php else : ?>
             <table>
@@ -102,4 +87,4 @@
 
     </div>
 
-</div>
+<?php include 'footer.php' ?>
