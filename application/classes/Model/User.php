@@ -24,11 +24,6 @@ private $db;
         return $this->db->execute("INSERT INTO addresses (idUser, first_name, last_name, address, address_complement, city, zipcode, country) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", array($idUser, $firstname, $lastname, $address, $address_complement, $city, $zipcode, $country));
     }
 
-    public function tieUserAndAddress($idUser, $idAddress)
-    {
-        return $this->db->execute("INSERT INTO users_addresses (idUser, idAddress) VALUES (?, ?)", array($idUser, $idAddress));
-    }
-
     public function getAddress($idUser)
     {
         return $this->db->query("SELECT * FROM addresses WHERE idUser = ?", array($idUser));

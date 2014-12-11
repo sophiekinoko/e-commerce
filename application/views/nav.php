@@ -17,12 +17,9 @@
         <?php foreach ($categories as $key => $value): ?>
         <li>
             <a href="<?= URL::site('welcome/category')."/".$value['category'] ?>" >
-                - <?= $value['category'] ?>
+                <?= $value['category'] ?>
             </a>
         </li>
         <?php endforeach; ?>
-        <li>
-            <img src="<?= URL::base() ?>/assets/img/paiement_securise_1213.png" alt="paiement securise"/>
-        </li>
     </ul>
 </div>

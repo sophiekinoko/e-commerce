@@ -14,8 +14,21 @@ class Controller_Welcome extends Controller {
 
         $view->imgPath = URL::base()."/assets/img/";
 
-        $view->listOfProducts = $product->getAllProducts();
+        function view_price($price)
+        {
+            $result = explode(".00", $price);
+            return $result[0];
+        }
 
+        //pagination
+        $numberOfProducts = $product->numberOfProducts();
+        //(il faudra aussi changer le nombre dans la requete mysql)
+        $productsByPage = 9;
+        $view->pagination = $numberOfProducts/$productsByPage;
+
+        $view->page = $this->request->param('page', 1);
+        $page = $this->request->param('page', 1);
+        $view->listOfProducts = $product->getSliceProducts($page);
         $this->response->body($view);
 	}
 

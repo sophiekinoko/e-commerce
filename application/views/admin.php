@@ -9,9 +9,22 @@
         <?php endif; ?>
 
         <form action="<?= URL::site('user/admin') ?>" method="post">
-            <p>Loggin:<input type="text" name="username" required></p>
-            <p>Password:<input type="password" name="password" required></p>
-            <input type="submit" name="submit" value="OK"></p>
+
+            <div>
+                <label for="username" class="colonne1">Username:</label>
+                <input type="text" name="username" class="colonne2" required>
+            </div>
+
+            <div>
+                <label for="password" class="colonne1">Password:</label>
+                <input type="password" name="password" class="colonne2" required>
+            </div>
+
+            <div>
+                <div class="colonne1"></div>
+                <input type="submit" name="submit" value="OK" class="colonne2">
+            </div>
+
         </form>
     </div>
 

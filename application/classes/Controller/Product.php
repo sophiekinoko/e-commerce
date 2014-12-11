@@ -186,6 +186,7 @@ class Controller_Product extends Controller {
                 $img = $_POST["img"];
                 $visible = $_POST["visible"];
                 $product->addProduct($name, $description, $price, $category, $img, $visible);
+                $_SESSION["message"] = "The product has been added.";
                 $this->redirect('product/administration');
             }
 

@@ -151,10 +151,9 @@ class Controller_User extends Controller {
                 $idUser = $user->createUSer($username, $email, $password);
                 //et on lui attribue une nouvelle adresse
                 $idAddress = $user->createAddress($idUser, $firstname, $lastname, $address, $address_complement, $city, $zipcode, $country);
-                //on lie l'adresse avec le user dans la table users_addresses
-                $user->tieUserAndAddress($idUser, $idAddress);
                 //on le logg
                 $_SESSION["user"] = $user->login($username);
+                $_SESSION["message"] = "Votre compte a bien été créé.";
             }
             //si on a une erreur PDO:
             catch(PDOException $e) 
@@ -162,7 +161,7 @@ class Controller_User extends Controller {
                 $error=true;
                 $view = View::factory("register");
                 $view->post = $_POST;
-                $view->error = "This user already exists.";
+                $view->error = "Problème de connexion à la BDD.";
                 $this->response->body($view);
             }
 

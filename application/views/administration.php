@@ -4,11 +4,12 @@
     <div class="administration">
         <h2>ADMINISTRATION</h2>
 
-        <?php if(isset($message)): ?>
+        <?php if(isset($_SESSION["message"])): ?>
             <div class="error"><?= $message ?></div>
+            <?php unset ($_SESSION["message"]); ?>
         <?php endif; ?>
 
-        <div class="add"><a href="<?= URL::base() ?>product/add">ADD PRODUCT >></a></div>
+        <div class="add"><a href="<?= URL::base() ?>product/add">ADD A PRODUCT >></a></div>
 
         <table>
             <tr>

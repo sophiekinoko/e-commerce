@@ -9,11 +9,13 @@
 </head>
 <body>
 
-<?php if(isset($_SESSION["user"]) && $_SESSION["user"]["administration"] == true): ?>
-    <div class="admin"><a href="<?= URL::site('product/administration') ?>">ADMINISTRATION</a></div>
-<?php endif; ?>
+
 
 <div class="wrap">
+
+    <?php if(isset($_SESSION["user"]) && $_SESSION["user"]["administration"] == true): ?>
+        <div class="admin"><a href="<?= URL::site('product/administration') ?>">ADMINISTRATION</a></div>
+    <?php endif; ?>
 
     <h1><a href="<?= URL::site('/') ?>">My Shop</a></h1>
 

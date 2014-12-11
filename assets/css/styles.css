@@ -45,8 +45,8 @@ h1, h2 {
 
 h1 {
 	font-size: 3em;
-        border-bottom: 3px solid black;
-        border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
     text-align: center;
 }
 
@@ -54,7 +54,21 @@ h2 {
 	font-size: 1.5em;
 	margin-bottom: 0;
     background-color: #9B1E60;
-        color: white;
+    color: white;
+}
+
+.pagination {
+    text-align: center;
+    display: inline-block;
+    color: white;
+    font-weight: 900;
+    padding: 0.65em;
+    background-color: #9B1E60;
+    width: 46.3%;
+}
+
+.pagination a{
+    color: white;
 }
 
 ul { 
@@ -71,10 +85,24 @@ li {
 
 textarea {
 	width: 100%;
+    margin-bottom: 1em;
 }
 
-input {
-	//width: 100%;
+form div {
+    margin: 1.5em 0;
+    padding-bottom: 1em;
+    display: block;
+    clear: both;
+}
+
+.colonne1 {
+    float: left;
+    width: 30%;
+}
+
+.colonne2 {
+    float: left;
+    width: 69%;
 }
 
 .index {
@@ -84,11 +112,18 @@ input {
     text-align: center;
 }
 
-.index:nth-child(3n-1) {
+.address {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+ul:nth-of-type(3n+1) {
     clear: both;
 }
 
-.index:nth-child(3n+1) {
+ul:nth-of-type(3n) {
     padding-right: 0;
 }
 
@@ -128,7 +163,7 @@ input {
     text-transform: uppercase;
     border: 2px solid #FCD001;
     font-weight: 900;
-    padding: 1.5em;
+    padding: 1em;
     font-size: 1em;
 }
 
@@ -218,6 +253,7 @@ table img {
     text-align: center;
     padding: 0.5em;
     background-color: rgba(0, 0, 0, .8);
+    float: right;
 }
 
 .admin a {
