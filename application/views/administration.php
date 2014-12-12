@@ -18,7 +18,7 @@
                 <td>Category</td>
                 <td>Name</td>
                 <td>Price</td>
-                <td>Remove</td>
+                <td>Visibility</td>
             </tr>
             <?php foreach ($products as $key => $value): ?>
                 <tr>
@@ -27,7 +27,14 @@
                     <td><?= $products[$key]["category"] ?></td>
                     <td><?= $products[$key]["name"] ?></td>
                     <td><?= $products[$key]["price"] ?> €</td>
-                    <td><a href="<?= URL::base() ?>product/toggle/<?= $products[$key]["id"] ?>" style="color:red">X</a></td>
+                    <?php if($products[$key]["visible"]==1)
+                    {
+                        $visible = "YES";
+                    }
+                    else{
+                        $visible = "NO";
+                    } ?>
+                    <td><a href="<?= URL::base() ?>product/toggle/<?= $products[$key]["id"] ?>" style="color:red"><?= $visible ?></a></td>
                 </tr>
             <?php endforeach; ?>
         </table>

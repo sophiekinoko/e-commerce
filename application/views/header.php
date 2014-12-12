@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="<?= URL::base() ?>/assets/css/normalize.css">
     <link rel="stylesheet" href="<?= URL::base() ?>/assets/css/styles.css">
     <link href='http://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
 

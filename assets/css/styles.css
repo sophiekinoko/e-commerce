@@ -12,6 +12,7 @@ body {
     background-color: white;
     margin-top: 2em;
 }
+
 .clear {
     clear: both;
 }
@@ -30,7 +31,6 @@ body {
     margin-top: 1.2em;
     padding-top: 0.4em;
 }
-
 
 a {
     color: #01191B;

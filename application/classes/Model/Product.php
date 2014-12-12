@@ -8,6 +8,11 @@ class Model_Product {
     }
     public function getAllProducts()
     {
+        return $this->db->query("SELECT * from products");
+    }
+
+    public function getVisibleProducts()
+    {
         return $this->db->query("SELECT * from products WHERE visible=1");
     }
 

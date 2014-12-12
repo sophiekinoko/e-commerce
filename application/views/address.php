@@ -1,6 +1,8 @@
 <?php include 'header.php' ?>
 <?php include 'nav.php' ?>
 
+<?php var_dump($_SESSION) ?>
+
 
     <div class="main">
         <h2>DELIVERY ADDRESS</h2>
@@ -10,29 +12,33 @@
         <?php endif; ?>
 
         <h3>Select your delivery address:</h3>
-            <form action="<?= URL::site('product/command') ?>" method="post">
-                    <?php $temp = true; ?>
-                    <?php foreach ($addresses as $key => $value): ?>
-                        <div class="address">
-                            <input type="radio" name="address" value="<?= $value['id'] ?> "
-                            <?php if($temp == true)
-                            {
-                                echo "checked";
-                                $temp=false;
-                            }
-                            ?>
-                            />
-                                <?= $value["first_name"]." ".strtoupper($value["last_name"]) ?><br/>
-                                <?= $value["address"] ?><br/>
-                                <?php if($value["address_complement"] != null)
-                                { echo $value["address_complement"]."<br/>"; } ?>
-                                <?= $value["zipcode"] ?><br/>
-                                <?= strtoupper($value["city"]) ?><br/>
-                                <?= strtoupper($value["country"]) ?>
-                        </div>
-                    <?php endforeach ?>
-                    <input type="submit" name="submit" value="SELECT">
-            </form>
+        <form action="<?= URL::site('product/command') ?>" method="post">
+            <?php $temp = true; ?>
+            <?php foreach ($addresses as $key => $value): ?>
+                <div class="address">
+                    <input type="radio" name="address" value="<?= $value['id'] ?> "
+                        <?php if($temp == true)
+                        {
+                            echo "checked";
+                            $temp=false;
+                        }
+                        ?>
+                        />
+                    <?= $value["first_name"]." ".strtoupper($value["last_name"]) ?><br/>
+                    <?= $value["address"] ?><br/>
+                    <?php if($value["address_complement"] != null)
+                    { echo $value["address_complement"]."<br/>"; } ?>
+                    <?= $value["zipcode"] ?><br/>
+                    <?= strtoupper($value["city"]) ?><br/>
+                    <?= strtoupper($value["country"]) ?>
+                </div>
+            <?php endforeach ?>
+            <div>
+                <div class="colonne1"></div>
+                <input type="submit" name="submit" value="OK" class="colonne2">
+            </div>
+            <div class="clear"></div>
+        </form>
 
         <h3>Or create a new one:</h3>
         <form action="<?= URL::site('user/address') ?>" method="post">
