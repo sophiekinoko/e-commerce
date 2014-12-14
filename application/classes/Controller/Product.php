@@ -5,26 +5,33 @@ class Controller_Product extends Controller {
 
 /////////////////////////////////////////////////////////////////
 
-
+	//la fonction before permet d'éxécuter une action avant dans toutes les fonctions suivantes
+	//existe auss en ::after
 	public function before() {
         parent::before();
+        //ici on veut toujours une session ouverte
         session_start();
     }
 
 
 /////////////////////////////////////////////////////////////////
 
-
+	//on créé l'action
 	public function action_view()
 	{
+	//avec un nouveau model
         $product = new Model_Product();
+        //on créé la vue
+        //la vue doit être créé avant de créer les variables qui vont être utilisées dedans
         $view = View::factory("view");
-
+	
+	//on défini le chemin des images qui vont être appelées
         $view->imgPath = URL::base()."/assets/img/";
-
+	//on récupère l'id placé en troisième paramètre ("id est défini en bad du fichier bootstrap)
         $id = $this->request->param('id');
+        //on fait la requète sql
         $view->productId = $product->getProduct($id);
-
+	//on envoie sur la view
         $this->response->body($view);
 	}
 
@@ -35,16 +42,18 @@ class Controller_Product extends Controller {
     {
         $view = View::factory("cart");
 
-        //$_SESSION existe toujours donc on vérifie qu'il est plein
+        //$_SESSION existe toujours donc on vérifie sil il comporte bien un user (connection)
         if(isset($_SESSION["user"]))
         {
             //on crée un champ cart au tableau si il n'y en a pas encore
             if(!isset($_SESSION["cart"]))
             {
+            	//il s'agit d'un tableau où l'on va placer tous les éléménts nécéssaies à la commande : user et articles séléctionnés
                 $_SESSION["cart"] = array();
             }
-            //on va chercher le paramètre passé dans la barre de nav (à partir d'un lien  a href)
+            //on va chercher le paramètre passé dans la barre de nav (à partir d'un lien a href)
             $id = $this->request->param('id');
+            //pareil pour la vue
             $view->id = $this->request->param('id');
             //on ajoute l'id du produit passé en paramètre dans le panier virtuel
 
@@ -62,6 +71,7 @@ class Controller_Product extends Controller {
             $this->redirect('product/cart');
         }
         else {
+        	//l'utilisateur n'est pas connecté donc on revoie sur la page login
             $this->redirect('user/login');
         }
     }
@@ -78,6 +88,7 @@ class Controller_Product extends Controller {
 
         $view->imgPath = URL::base()."/assets/img/";
         $view->listOfProducts = $product->getAllProducts();
+        //le prix de la livraison = 10
         $view->livraison = 10;
         if(!empty($_POST))
         {
